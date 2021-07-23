@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS carrinho;
+
+CREATE TABLE billionaires (
+  nome VARCHAR(250) NOT NULL,
+  local VARCHAR(250) NOT NULL
+);
