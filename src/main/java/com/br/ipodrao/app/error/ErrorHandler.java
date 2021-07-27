@@ -23,6 +23,4 @@ public class ErrorHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity handleNotFoundException(NotFoundException ex) {
         return new ResponseEntity(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
-
-
 }

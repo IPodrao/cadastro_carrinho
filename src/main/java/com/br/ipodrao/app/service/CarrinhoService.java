@@ -22,17 +22,16 @@ public class CarrinhoService {
     private CarrinhoMapper mapper;
 
     public CarrinhoDTO buscaCarrinho(Long id) throws NotFoundException {
-         Optional<CarrinhoEntity> maybeCarrinho = repository.findById(id.longValue());
-         if(maybeCarrinho.isPresent()){
-             return mapper.toDTO(maybeCarrinho.get());
+        Optional<CarrinhoEntity> maybeCarrinho = repository.findById(id.longValue());
+        if (maybeCarrinho.isPresent()) {
+            return mapper.toDTO(maybeCarrinho.get());
+        } else {
+            throw new NotFoundException(ErrorMessage.CARRINHO_NAO_ENCONTRADO);
         }
-         else{
-             throw new NotFoundException(ErrorMessage.CARRINHO_NAO_ENCONTRADO);
-         }
 
     }
 
-    public CarrinhoDTO adicionaCarrinho(CarrinhoDTO dto) throws AlreadyExistsException{
+    public CarrinhoDTO adicionaCarrinho(CarrinhoDTO dto) throws AlreadyExistsException {
         if (validaCarrinho(dto)) {
             CarrinhoEntity entity = repository.save(mapper.toEntity(dto));
             return mapper.toDTO(entity);
