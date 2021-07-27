@@ -1,6 +1,7 @@
 package com.br.ipodrao.app.service;
 
 import com.br.ipodrao.app.entity.CarrinhoEntity;
+import com.br.ipodrao.app.error.ErrorMessage;
 import com.br.ipodrao.app.exception.AlreadyExistsException;
 import com.br.ipodrao.app.exception.NotFoundException;
 import com.br.ipodrao.app.mapper.CarrinhoMapper;
@@ -26,7 +27,7 @@ public class CarrinhoService {
              return mapper.toDTO(maybeCarrinho.get());
         }
          else{
-             throw new NotFoundException("Carrinho não encontrado");
+             throw new NotFoundException(ErrorMessage.CARRINHO_NAO_ENCONTRADO);
          }
 
     }
@@ -44,18 +45,18 @@ public class CarrinhoService {
             CarrinhoEntity entity = repository.getById(id.longValue());
             repository.delete(entity);
         } else {
-            throw new NotFoundException("Carrinho não existe");
+            throw new NotFoundException(ErrorMessage.CARRINHO_NAO_ENCONTRADO);
         }
 
     }
 
     private boolean validaCarrinho(CarrinhoDTO dto) throws AlreadyExistsException {
         if (repository.findByNome(dto.getNome()).isPresent()) {
-            throw new AlreadyExistsException("Carrinho já cadastrado");
+            throw new AlreadyExistsException(ErrorMessage.CARRINHO_JA_CADASTRADO);
         }
 
         if (repository.findByLocal(dto.getLocal()).isPresent()) {
-            throw new AlreadyExistsException("Local já cadastrado");
+            throw new AlreadyExistsException(ErrorMessage.LOCAL_JA_CADASTRADO);
         }
         return true;
     }

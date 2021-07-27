@@ -1,5 +1,7 @@
-package com.br.ipodrao.app.exception;
+package com.br.ipodrao.app.error;
 
+import com.br.ipodrao.app.exception.AlreadyExistsException;
+import com.br.ipodrao.app.exception.NotFoundException;
 import org.aspectj.weaver.ast.Not;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
