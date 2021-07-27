@@ -8,7 +8,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@ControllerAdvice
+@RestControllerAdvice
 public class ErrorHandler {
 
     @ExceptionHandler(AlreadyExistsException.class)
