@@ -15,7 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-@Controller
+@RestController
 @RequestMapping("/carrinho")
 public class CarrinhoController {
 
@@ -27,7 +27,7 @@ public class CarrinhoController {
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    CarrinhoEntity adicionaCarrinho(@RequestBody CarrinhoDTO dto) throws AlreadyExistsException {
+    CarrinhoDTO adicionaCarrinho(@RequestBody CarrinhoDTO dto) throws AlreadyExistsException {
         return service.adicionaCarrinho(dto);
     }
 
@@ -39,7 +39,7 @@ public class CarrinhoController {
 
     @RequestMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    CarrinhoEntity buscaCarrinho(@PathVariable Long id) throws NotFoundException {
+    CarrinhoDTO buscaCarrinho(@PathVariable Long id) throws NotFoundException {
         return service.buscaCarrinho(id);
     }
 

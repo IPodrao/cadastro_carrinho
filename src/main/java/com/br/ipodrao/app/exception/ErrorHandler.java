@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @RestControllerAdvice
-public class ErrorHandler {
+public class ErrorHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(AlreadyExistsException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
