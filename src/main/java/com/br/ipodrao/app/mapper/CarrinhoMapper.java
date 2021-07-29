@@ -2,16 +2,12 @@ package com.br.ipodrao.app.mapper;
 
 import com.br.ipodrao.app.dto.CarrinhoDTO;
 import com.br.ipodrao.app.entity.CarrinhoEntity;
-import org.springframework.stereotype.Component;
+import org.mapstruct.Mapper;
 
-@Component
-public class CarrinhoMapper {
+@Mapper(componentModel = "spring")
+public interface CarrinhoMapper {
 
-    public CarrinhoEntity toEntity(CarrinhoDTO dto) {
-        return new CarrinhoEntity(dto.getNome(), dto.getLocal());
-    }
+    CarrinhoEntity carrinhoDTOtoCarrinhoEntity(CarrinhoDTO dto);
+    CarrinhoDTO carrinhoEntityToCarrinhoDTO(CarrinhoEntity entity);
 
-    public CarrinhoDTO toDTO(CarrinhoEntity entity){
-        return new CarrinhoDTO(entity.getId(), entity.getNome(), entity.getLocal());
-    }
 }

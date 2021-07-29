@@ -1,17 +1,16 @@
 package com.br.ipodrao.app.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class CarrinhoDTO {
 
     private long id;
     private String nome;
-    private String local;
+    private Double latitude;
+    private Double longitude;
 }

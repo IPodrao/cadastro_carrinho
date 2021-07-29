@@ -11,6 +11,6 @@ public interface CarrinhoRepository extends JpaRepository<CarrinhoEntity, Long> 
 
     Optional<CarrinhoEntity> findByNome(String nome);
 
-    Optional<CarrinhoEntity> findByLocal(String local);
+    Optional<CarrinhoEntity> findByLatitudeAndLongitude(Double latitude, Double longitude);
 
 }

@@ -15,19 +15,23 @@ import javax.persistence.*;
 public class CarrinhoEntity {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
     @Column(name = "nome")
     private String nome;
 
-    @Column(name = "local")
-    private String local;
+    @Column(name = "latitude")
+    private Double latitude;
+
+    @Column(name = "longitude")
+    private Double longitude;
 
 
-    public CarrinhoEntity(String nome, String local) {
+    public CarrinhoEntity(String nome, Double latitude, Double longitude) {
         this.nome = nome;
-        this.local = local;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 }
