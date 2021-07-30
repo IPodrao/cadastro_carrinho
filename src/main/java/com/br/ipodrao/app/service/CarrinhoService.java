@@ -1,20 +1,18 @@
 package com.br.ipodrao.app.service;
 
+import com.br.ipodrao.app.dto.CarrinhoDTO;
 import com.br.ipodrao.app.entity.CarrinhoEntity;
 import com.br.ipodrao.app.error.ErrorMessage;
 import com.br.ipodrao.app.exception.AlreadyExistsException;
 import com.br.ipodrao.app.exception.NotFoundException;
 import com.br.ipodrao.app.mapper.CarrinhoMapper;
 import com.br.ipodrao.app.repository.CarrinhoRepository;
-import com.br.ipodrao.app.dto.CarrinhoDTO;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class CarrinhoService {
