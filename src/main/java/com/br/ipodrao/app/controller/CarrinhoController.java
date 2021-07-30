@@ -36,6 +36,14 @@ public class CarrinhoController {
         return service.adicionaCarrinho(dto);
     }
 
+    @ApiOperation("Altera um determinado carrinho")
+    @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    CarrinhoDTO alteraCarrinho(@RequestBody CarrinhoDTO dto) throws NotFoundException {
+        log.debug("alteraCarrinho: %s", dto.toString());
+        return service.alteraCarrinho(dto);
+    }
+
     @ApiOperation("Remove um determinado carrinho")
     @DeleteMapping("/{id}")
     ResponseEntity removeCarrinho(@PathVariable Long id) throws NotFoundException {

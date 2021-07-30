@@ -43,6 +43,14 @@ public class CarrinhoService {
         return null;
     }
 
+    public CarrinhoDTO alteraCarrinho(CarrinhoDTO dto) throws NotFoundException {
+        if (repository.existsById(dto.getId())) {
+            return mapper.carrinhoEntityToCarrinhoDTO(repository.save(mapper.carrinhoDTOtoCarrinhoEntity(dto)));
+        } else {
+            throw new NotFoundException(ErrorMessage.CARRINHO_NAO_ENCONTRADO);
+        }
+    }
+
     public void removeCarrinho(Long id) throws NotFoundException {
         if (repository.existsById(id.longValue())) {
             CarrinhoEntity entity = repository.getById(id.longValue());

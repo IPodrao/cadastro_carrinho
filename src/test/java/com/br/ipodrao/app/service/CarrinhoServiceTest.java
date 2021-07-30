@@ -40,6 +40,20 @@ class CarrinhoServiceTest {
         Assertions.assertEquals(result.getNome(), dto.getNome());
     }
 
+    @DisplayName("Altera Carrinho")
+    @Test
+    void alteraCarrinhoTest() {
+        CarrinhoDTO dto = new CarrinhoDTO(1L, "Carrinho do zé alterado", 123123D, 13432453D);
+        CarrinhoEntity entity = getCarrinhoEntity();
+        entity.setNome(dto.getNome());
+
+        doReturn(true).when(repository).existsById(1L);
+        doReturn(entity).when(repository).save(any(CarrinhoEntity.class));
+
+        CarrinhoDTO result = service.alteraCarrinho(dto);
+        Assertions.assertEquals(result.getNome(), dto.getNome());
+    }
+
     @DisplayName("Remove Carrinho")
     @Test
     void removeCarrinhoTest() {
